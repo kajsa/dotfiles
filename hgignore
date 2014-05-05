@@ -1,0 +1,11 @@
+syntax: glob
+
+.hgignore
+*.orig
+*.resolve
+*~
+.DS_Store
+.idea/
+target/
+logs/
+*.iml
