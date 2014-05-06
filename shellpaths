@@ -2,7 +2,7 @@
 # Shell agnostic path setup
 ########################################################################
 
-# Matthew's Scripts
+# Kajsa's Scripts
 export PATH=$PATH:.
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.dotfiles/scripts
