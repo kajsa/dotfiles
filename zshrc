@@ -14,7 +14,8 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 #export ZSH_THEME="fino"
 #export ZSH_THEME="takashiyoshida"
 #export ZSH_THEME="random"
-export ZSH_THEME="jnrowe"
+#export ZSH_THEME="candy-kingdom"
+export ZSH_THEME="gentoo"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
@@ -29,12 +30,8 @@ export CASE_SENSITIVE="true"
 # export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
-plugins=(git battery brew osx gradle ant compleat dirpersist gem ssh-agent cloudapp ruby textmate sublime)
+plugins=(ant brew colored-man colorize compleat dirpersist git gradle gem mercurial mvn osx ruby sbt scala ssh-agent sublime textmate)
 
 source $ZSH/oh-my-zsh.sh
 
-##############################################################################
-# Boxen setup
-##############################################################################
-source /opt/boxen/env.sh
 
