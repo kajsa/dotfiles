@@ -13,6 +13,7 @@ pushd ~
 .gemrc
 .gitconfig
 .gitignore
+.hgignore
 .netrc
 .profile
 .rvmrc
@@ -40,6 +41,7 @@ pushd ~
 .gemrc
 .gitconfig
 .gitignore
+.hgignore
 .netrc
 .profile
 .rvmrc

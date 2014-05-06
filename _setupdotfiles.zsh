@@ -49,6 +49,7 @@ symlinkifne .conf
 symlinkifne .gemrc
 symlinkifne .gitconfig
 # symlinkifne .gitignore
+symlinkifne .hgignore
 symlinkifne .netrc
 symlinkifne .profile
 symlinkifne .rvmrc
