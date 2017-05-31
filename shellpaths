@@ -2,42 +2,12 @@
 # Shell agnostic path setup
 ########################################################################
 
-# Kajsa's Scripts
+# User scripts
 export PATH=$PATH:~/bin
-export PATH=$PATH:~/.dotfiles/scripts
 
 # Brew
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH 
-
-# Dev frameworks
-#export PATH=$PATH:$ANT_HOME/bin
-#export PATH=$PATH:$M2_HOME/bin
-#export PATH=$PATH:$GROOVY_HOME/bin
-#export PATH=$PATH:$GRAILS_HOME/bin
-#export PATH=$PATH:$NEXUS_HOME/bin/jsw/macosx-universal-64
-#export PATH=$PATH:$JMETER_HOME/bin
-#export PATH=$PATH:$JRUBY_HOME/bin
-#export PATH=$PATH:$SOAPUI_HOME/bin
-#export PATH=$PATH:$APPENGINE_HOME/bin
 
 # Dev
-#export PATH=$PATH:/Applications/Dev/apache-tomcat/bin
-#export PATH=$PATH:/Applications/Dev/apache-maven/bin
-#export PATH=$PATH:/Applications/Dev/sonar/bin/macosx-universal-64
-#export PATH=$PATH:/Library/PostgreSQL/8.4/bin
-#export PATH=$PATH:/Applications/Dev/gradle/bin
-#export PATH=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Commands:$PATH
-#export PATH=~/.gem/ruby/1.8/bin:$PATH             #For showoff
-#export PATH=$PATH:~/.cljr/bin
-export PATH=~/.rbenv/bin:$PATH
-
-# Haskell
-export PATH=$PATH:~/.cabal/bin
-
-# Git Tools
-PATH=$PATH:/Applications/Dev/jgit
-
-# Node JS Packages (from Brew Install of Node and NPM)
-PATH=$PATH:/usr/local/share/npm/bin
-
+export PATH=$PATH:$CATALINA_HOME/bin
+export PATH=$JAVA_HOME/bin:$PATH
