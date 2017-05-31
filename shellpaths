@@ -3,20 +3,12 @@
 ########################################################################
 
 # Kajsa's Scripts
-export PATH=$PATH:.
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.dotfiles/scripts
 
 # Brew
-export PATH=/opt/boxen/homebrew/sbin:$PATH
-#export PATH=/opt/boxen/homebrew/bin:$PATH
-
-# MacPorts
-## Having MacPorts first instead of after $PATH causes a GitK error
-## http://stackoverflow.com/questions/2629292/starting-gitk-error
-export PATH=$PATH:/opt/local/bin
-export PATH=$PATH:/opt/local/sbin
-export MANPATH=$MANPATH:/opt/local/share/man
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH 
 
 # Dev frameworks
 #export PATH=$PATH:$ANT_HOME/bin

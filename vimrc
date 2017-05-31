@@ -7,7 +7,9 @@ execute pathogen#infect()
 set ts=4
 
 " turn syntax highlighting on by default
-syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 filetype plugin indent on
 
 " set auto-indenting on for programming

@@ -1,6 +1,7 @@
 [user]
 	name = Kajsa Anderson
 	email = kajsa.anderson@thomsonreuters.com
+	signingkey = DA275688
 
 [color]
 # ui = true is a superset of all the more specific color options
@@ -29,14 +30,15 @@
 	#untracked = cyan
 
 [gui]
-	recentrepo = ~/Documents/Temp/Scratch/hello/hgw1
+	recentrepo = ~/projects/trd-legal
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	quotepath = false
 	autocrlf = input
 	safecrlf = warn
 	editor = vim
+	whitespace = trailing-space,space-before-tab,tab-in-indent
 
 [alias]
 	br = branch -a
@@ -57,10 +59,12 @@
 	lp = log -p
 	lod = log --oneline --decorate
 	lg = log --graph
+	logg = log --oneline --abbrev-commit --decorate --graph
 	lpo = log --pretty=oneline --abbrev-commit --graph --decorate --all
 	l1 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	l2 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	l3 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	spull = !git-svn fetch && git-svn rebase
 	spush = !git-svn dcommit
 	sync = !git pull && git push
@@ -78,7 +82,7 @@
 	logr2 = log --stat -M -2
 	logit = log --stat -M
 	scrub = !git reset --hard && git clean -fd
-    pubdev = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
+  pubdev = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
 	pub = push -u origin
 	cs = status
 	rv = remote -v
@@ -184,7 +188,7 @@
 
 
 [apply]
-	whitespace = nowarn
+	whitespace = fix
 [rerere]
 	enabled = true
 
@@ -214,20 +218,20 @@
 	insteadOf = "ghg://"
 	pushInsteadOf = "ghg://"
 	# Example: git clone ghg://ntschutta/emacs
-[url "git://github.com/matthewmccullough/"]
+[url "git://github.com/kajsa/"]
     insteadOf = "ghgm://"
     pushInsteadOf = "ghgm://"
     # Example: git clone ghgm://hellogitworld
 [url "git@github.com:"]
 	insteadOf = "ghs://"
 	pushInsteadOf = "ghs://"
-[url "git@github.com:matthewmccullough/"]
+[url "git@github.com:kajsa/"]
 	insteadOf = "ghsm://"
 	pushInsteadOf = "ghsm://"
 [url "https://github.com/"]
-	insteadOf = "ghh://"
+	insteadOf = git://github.com/
 	pushInsteadOf = "ghh://"
-[url "https://github.com/matthewmccullough/"]
+[url "https://github.com/kajsa/"]
 	insteadOf = "ghhm://"
 	pushInsteadOf = "ghhm://"
 
@@ -245,11 +249,13 @@
 [gist]
 	private = yes
 	browse = yes
-#[credential]
-	# helper = cache --timeout=300
+[credential]
+	helper = store
 
+[pull]
+	rebase = preserve
 [push]
-	default = matching
+	default = simple
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
@@ -258,3 +264,13 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[http]
+	proxy = http://webproxy.int.westgroup.com:80
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

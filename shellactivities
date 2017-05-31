@@ -37,3 +37,5 @@ function work.gittraining() {
     open "~/Documents/Code/GitHub/GUTS_git"
     open "~/Documents/Code/GitHub/teach.github.com"
 }
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
