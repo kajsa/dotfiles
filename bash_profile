@@ -21,7 +21,7 @@ shopt -s cmdhist
 
 # Load Brew's git bash prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  GIT_PROMPT_THEME=Solarized
+  GIT_PROMPT_THEME=Solarized_UserHost
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
   source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
@@ -34,3 +34,5 @@ fi
 # source /opt/boxen/homebrew/Cellar/git/1.9.1/etc/bash_completion.d/git-prompt.sh
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 # GIT_PS1_SHOWDIRTYSTATE=true
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
