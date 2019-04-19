@@ -36,3 +36,14 @@ fi
 # GIT_PS1_SHOWDIRTYSTATE=true
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# Load pyenv
+if command -v pyenv 1>/dev/null 2>\&1
+then
+  eval "$(pyenv init -)"
+fi
+# Load pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null
+then
+  eval "$(pyenv virtualenv-init -)"
+fi

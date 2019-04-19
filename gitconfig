@@ -65,28 +65,24 @@
 	l2 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	l3 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	spull = !git-svn fetch && git-svn rebase
-	spush = !git-svn dcommit
-	sync = !git pull && git push
-	es = !git pull --rebase && git push
 	lf = log --pretty=fuller
-	ignorechanges = update-index --assume-unchanged
-	noticechanges = update-index --no-assume-unchanged
-	gc-ap = gc --aggressive --prune
-	listconf = config --global --list
-	cam = commit -a -m
 	lsm = log -M --stat
 	hse = log --stat -5
-	diffall = diff HEAD
+    lwr = log --stat -C
 	logr = log -M
 	logr2 = log --stat -M -2
 	logit = log --stat -M
+    l = log --stat -C
+    ll = log --stat -C -3
+    ignorechanges = update-index --assume-unchanged
+    noticechanges = update-index --no-assume-unchanged
+    gc-ap = gc --aggressive --prune
+    listconf = config --global --list
+    cam = commit -a -m
 	scrub = !git reset --hard && git clean -fd
-  pubdev = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
+    pubdev = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
 	pub = push -u origin
-	cs = status
 	rv = remote -v
-	lwr = log --stat -C
 	pur = pull --rebase
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 	orphank = !gitk --all `git reflog | cut -c1-7`&
@@ -97,9 +93,6 @@
 	testecho2 = !sh -c 'echo without slash: zero=$0 one=$1 two=$2'
 	# te2 RESULT: without slash: zero=A one=B two=C
 	st = status
-	l = log --stat -C
-	ll = log --stat -C -3
-	servehere = daemon --verbose --informative-errors --reuseaddr --export-all --base-path=. --enable=receive-pack
 	purgeme = !git clean -fd && git reset --hard
 	prunenow = gc --prune=now
 	ri = rebase --interactive --autosquash
@@ -107,6 +100,14 @@
 	blg = log --graph --decorate --all --abbrev-commit --pretty=oneline
 	slog = log --graph --simplify-by-decoration --all --abbrev-commit --pretty=oneline
 	lgso = log --graph --date=short --pretty=format:'%C(yellow)%h%Creset %cn%x09%cd %s%C(green bold)%d'
+    logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
+    gwcl = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    rlog = log --color-words --stat -3
+    lm = log --stat -M
+    logm = log --stat -M
+    logcpy = log --stat -1 -C -C
+    nfjsunpushed = log origin/master..master --oneline
+    noderelnotes = git log --graph --pretty=format:'%h%d %s (%an)'
 	ro = !git fetch origin && git reset --hard origin/master
 	shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
 	pushnotes = !sh -c 'git push $1 refs/notes/*' -
@@ -121,6 +122,10 @@
 	liststaged = diff --name-status --staged
 	listhistory = log --name-status
 	logn = log --oneline --name-only
+    logme = log --author=Kajsa --stat -C
+    serveall = !git daemon --base-path=/Users/u0041298/projects /Users/u0041298/projects --export-all --reuseaddr --informative-errors --verbose --enable=receive-pack
+    servehere = daemon --verbose --informative-errors --reuseaddr --export-all --base-path=. --enable=receive-pack
+
 	busypeople = shortlog -6
 	busythisweek = shortlog --since=one.week.ago
 	configpushtracking = config push.default tracking
@@ -139,26 +144,10 @@
 	fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
 	squash = "!sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
 	ccfq = "!sh -c 'git add $1 && git commit -m\"Placeholder\"' -"
-	logme = log --author=Matthew --stat -C
 	cob = checkout -b
 	sno = show --name-only
-	logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
-	gwcl = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	rlog = log --color-words --stat -3
-	lm = log --stat -M
-	
-	# Legit
-	legitsync = !legit sync \"$@\"
-	legitswitch = !legit switch \"$@\"
-	legitbranches = !legit branches
-	legitsprout = !legit sprout \"$@\"
-	legitunpublish = !legit unpublish \"$@\"
-	legitharvest = !legit harvest \"$@\"
-	legitpublish = !legit publish \"$@\"
-	legitgraft = !legit graft \"$@\"
 	
 	#Searches
-	findjuniodeletes = log --author=Junio --diff-filter=D --since=2.years.ago
 	
 	#https://git.wiki.kernel.org/index.php?title=Aliases
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -175,14 +164,8 @@
 	cc-helperosx = "config --global credential.helper 'osxkeychain'"
 	cc-helperwin = "config --global credential.helper 'wincred'"
 	cc-helperlin = "config --global credential.helper '/pathto/git-credential-gnome-key'"
-	logm = log --stat -M
-	logcpy = log --stat -1 -C -C
-	pushsvn = svn dcommit
-	pullsvn = svn rebase
-	nfjsunpushed = log origin/master..master --oneline
 	rtheirs = !git checkout --theirs ./ && git add . && git rebase --continue
-	logfive = log --graph --pretty=oneline --abbrev-commit --decorate --all -5
-	noderelnotes = git log --graph --pretty=format:'%h%d %s (%an)'
+    logfive = !git --no-pager log --graph --pretty=oneline --abbrev-commit --decorate --all -5
 	configsimplelog = config format.pretty oneline
 	listignored = ls-files --others -i --exclude-standard
 
@@ -194,20 +177,14 @@
 
 [difftool]
 	prompt = false
-[difftool "myaraxis"]
-	cmd = araxisgitdiff ONE $LOCAL THREE FOUR $REMOTE
 [diff]
-#	tool = araxis
 	tool = Kaleidoscope
 #	renames = true
 
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "myaraxis"]
-    cmd = araxisgitmerge $PWD/$REMOTE $PWD/$BASE $PWD/$LOCAL $PWD/$MERGED
 [merge]
-#	tool = araxis
 	tool = Kaleidoscope
 
 [branch]
@@ -250,17 +227,9 @@
 	private = yes
 	browse = yes
 [credential]
-	helper = store
-
-[pull]
-	rebase = preserve
+    helper = osxkeychain
 [push]
 	default = simple
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f

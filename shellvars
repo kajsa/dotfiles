@@ -4,7 +4,7 @@
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/Current/Contents/Home
 export CATALINA_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec
 export DERBY_HOME=/usr/local/Cellar/derby/10.13.1.1/libexec
-export M2_HOME=/usr/local/Cellar/maven/3.5.0/libexec
+export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
 export NVM_DIR="$HOME/.nvm"
 
 #########################################################################
