@@ -1,7 +1,7 @@
 [user]
-	name = Kajsa Anderson
-	email = kajsa.anderson@thomsonreuters.com
-	signingkey = DA275688
+    name = Kajsa Anderson
+    email = kajsa.anderson@thomsonreuters.com
+    signingkey = DA275688
 
 [color]
 # ui = true is a superset of all the more specific color options
@@ -10,68 +10,68 @@
 # When false, never. When set to true or auto, use colors only when the output is to the terminal.
 # When more specific variables of color.* are set, they always take precedence over this setting.
 # Defaults to false.
-	ui = auto
-	# diff = auto
-	# status = auto
-	# branch = auto
-	
+    ui = auto
+    # diff = auto
+    # status = auto
+    # branch = auto
+    
 [color "branch"]
-	#current = yellow reverse
-	#local = yellow
-	#remote = green
+    #current = yellow reverse
+    #local = yellow
+    #remote = green
 [color "diff"]
-	#meta = yellow bold
-	#frag = magenta bold
-	#old = red bold
-	#new = green bold
+    #meta = yellow bold
+    #frag = magenta bold
+    #old = red bold
+    #new = green bold
 [color "status"]
-	#added = yellow
-	#changed = green
-	#untracked = cyan
+    #added = yellow
+    #changed = green
+    #untracked = cyan
 
 [gui]
-	recentrepo = ~/projects/trd-legal
+    recentrepo = ~/projects/trd-legal
 
 [core]
-	excludesfile = ~/.gitignore_global
-	quotepath = false
-	autocrlf = input
-	safecrlf = warn
-	editor = vim
-	whitespace = trailing-space,space-before-tab,tab-in-indent
+    excludesfile = ~/.gitignore_global
+    quotepath = false
+    autocrlf = input
+    safecrlf = warn
+    editor = vim
+    whitespace = trailing-space,space-before-tab,tab-in-indent
 
 [alias]
-	br = branch -a
-	s = status -u -s
-	cl = log --stat -C -2
-	c = commit
-	co = checkout
-	d = diff --color-words
-	dh = diff HEAD
-	dc = diff --staged
-	dw = diff --word-diff
-	dcw = diff --color-words
-	dm = !git diff | mate
-	dv = !git diff | vim
-	who = shortlog -s --
-	ph = push
-	pl = pull
-	lp = log -p
-	lod = log --oneline --decorate
-	lg = log --graph
-	logg = log --oneline --abbrev-commit --decorate --graph
-	lpo = log --pretty=oneline --abbrev-commit --graph --decorate --all
-	l1 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	l2 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	l3 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	lf = log --pretty=fuller
-	lsm = log -M --stat
-	hse = log --stat -5
+    br = branch -a
+    s = status -u -s
+    cl = log --stat -C -2
+    c = commit
+    co = checkout
+    d = diff --color-words
+    dh = diff HEAD
+    dc = diff --staged
+    dw = diff --word-diff
+    dcw = diff --color-words
+    dm = !git diff | mate
+    dv = !git diff | vim
+    who = shortlog -s --
+    ph = push
+    pl = pull
+    lp = log -p
+    lod = log --oneline --decorate
+    lg = log --graph
+    logg = log --oneline --abbrev-commit --decorate --graph
+    lpo = log --pretty=oneline --abbrev-commit --graph --decorate --all
+    l1 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    l2 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l3 = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    lf = log --pretty=fuller
+    lsm = log -M --stat
+    hse = log --stat -5
     lwr = log --stat -C
-	logr = log -M
-	logr2 = log --stat -M -2
-	logit = log --stat -M
+    logr = log -M
+    logr2 = log --stat -M -2
+    logit = log --stat -M
     l = log --stat -C
     ll = log --stat -C -3
     ignorechanges = update-index --assume-unchanged
@@ -79,27 +79,27 @@
     gc-ap = gc --aggressive --prune
     listconf = config --global --list
     cam = commit -a -m
-	scrub = !git reset --hard && git clean -fd
+    scrub = !git reset --hard && git clean -fd
     pubdev = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
-	pub = push -u origin
-	rv = remote -v
-	pur = pull --rebase
-	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-	orphank = !gitk --all `git reflog | cut -c1-7`&
-	orphanl = !git log --pretty=oneline --abbrev-commit --graph --decorate `git reflog | cut -c1-7`
-	k = !exec gitk --all&
-	testecho1 = !sh -c 'echo with slash: zero=$0 one=$1 two=$2' -
-	# te1 RESULT: with slash: zero=- one=A two=B
-	testecho2 = !sh -c 'echo without slash: zero=$0 one=$1 two=$2'
-	# te2 RESULT: without slash: zero=A one=B two=C
-	st = status
-	purgeme = !git clean -fd && git reset --hard
-	prunenow = gc --prune=now
-	ri = rebase --interactive --autosquash
-	lol = log --pretty=oneline --graph --abbrev-commit --all
-	blg = log --graph --decorate --all --abbrev-commit --pretty=oneline
-	slog = log --graph --simplify-by-decoration --all --abbrev-commit --pretty=oneline
-	lgso = log --graph --date=short --pretty=format:'%C(yellow)%h%Creset %cn%x09%cd %s%C(green bold)%d'
+    pub = push -u origin
+    rv = remote -v
+    pur = pull --rebase
+    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+    orphank = !gitk --all `git reflog | cut -c1-7`&
+    orphanl = !git log --pretty=oneline --abbrev-commit --graph --decorate `git reflog | cut -c1-7`
+    k = !exec gitk --all&
+    testecho1 = !sh -c 'echo with slash: zero=$0 one=$1 two=$2' -
+    # te1 RESULT: with slash: zero=- one=A two=B
+    testecho2 = !sh -c 'echo without slash: zero=$0 one=$1 two=$2'
+    # te2 RESULT: without slash: zero=A one=B two=C
+    st = status
+    purgeme = !git clean -fd && git reset --hard
+    prunenow = gc --prune=now
+    ri = rebase --interactive --autosquash
+    lol = log --pretty=oneline --graph --abbrev-commit --all
+    blg = log --graph --decorate --all --abbrev-commit --pretty=oneline
+    slog = log --graph --simplify-by-decoration --all --abbrev-commit --pretty=oneline
+    lgso = log --graph --date=short --pretty=format:'%C(yellow)%h%Creset %cn%x09%cd %s%C(green bold)%d'
     logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
     gwcl = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     rlog = log --color-words --stat -3
@@ -108,138 +108,138 @@
     logcpy = log --stat -1 -C -C
     nfjsunpushed = log origin/master..master --oneline
     noderelnotes = git log --graph --pretty=format:'%h%d %s (%an)'
-	ro = !git fetch origin && git reset --hard origin/master
-	shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
-	pushnotes = !sh -c 'git push $1 refs/notes/*' -
-	fetchnotes = !sh -c 'git fetch $1 refs/notes/*:refs/notes/*' -
-	showignored = clean -ndX
-	showignored2 = ls-files --others --ignored --exclude-standard
-	showuntracked = ls-files --others --exclude-standard
-	rmmissing = !git rm $(git ls-files --deleted)
-	mergekeepoursonly = merge -s ours
-	redocommit = reset --soft HEAD^
-	listunstaged = diff --name-status
-	liststaged = diff --name-status --staged
-	listhistory = log --name-status
-	logn = log --oneline --name-only
+    ro = !git fetch origin && git reset --hard origin/master
+    shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
+    pushnotes = !sh -c 'git push $1 refs/notes/*' -
+    fetchnotes = !sh -c 'git fetch $1 refs/notes/*:refs/notes/*' -
+    showignored = clean -ndX
+    showignored2 = ls-files --others --ignored --exclude-standard
+    showuntracked = ls-files --others --exclude-standard
+    rmmissing = !git rm $(git ls-files --deleted)
+    mergekeepoursonly = merge -s ours
+    redocommit = reset --soft HEAD^
+    listunstaged = diff --name-status
+    liststaged = diff --name-status --staged
+    listhistory = log --name-status
+    logn = log --oneline --name-only
     logme = log --author=Kajsa --stat -C
     serveall = !git daemon --base-path=/Users/u0041298/projects /Users/u0041298/projects --export-all --reuseaddr --informative-errors --verbose --enable=receive-pack
     servehere = daemon --verbose --informative-errors --reuseaddr --export-all --base-path=. --enable=receive-pack
 
-	busypeople = shortlog -6
-	busythisweek = shortlog --since=one.week.ago
-	configpushtracking = config push.default tracking
-	configpushnothing = config push.default nothing
-	configpushtracking = config push.default matching
-	configpushcurrent = config push.default current
+    busypeople = shortlog -6
+    busythisweek = shortlog --since=one.week.ago
+    configpushtracking = config push.default tracking
+    configpushnothing = config push.default nothing
+    configpushtracking = config push.default matching
+    configpushcurrent = config push.default current
 
-	# Other alias ideas that don't quite work yet
-	#testnewrepodoesntwork1 = !echo git init $1 && echo cd $1
-	#testnewrepodoesntwork2 = !sh -c 'git init $1; echo hi' -
-	#testnewrepodoesntwork3 = "!f() { git init $1}; f"
-	nr = "!sh -c 'git init $0'"
-	echoparam1 = "!sh -c 'echo $0'"
-	#testshfunction = "!function gitme() { git init $1; cd $1; }; gitme"
-	
-	fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
-	squash = "!sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
-	ccfq = "!sh -c 'git add $1 && git commit -m\"Placeholder\"' -"
-	cob = checkout -b
-	sno = show --name-only
-	
-	#Searches
-	
-	#https://git.wiki.kernel.org/index.php?title=Aliases
-	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-	abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
-	oneline ="!_() { $(test $# -eq 0 && echo xargs -L1) git log --no-walk --decorate --oneline \"$@\"; }; _"
-	tips = "!_() { t=$(git rev-list --no-merges --max-count=1 \"$@\"); if test -n \"$t\"; then echo $t; _ \"$@\" ^$t; fi; }; _"
-	empty-tree-sha1 = hash-object -t tree /dev/null
-	whitespaceviolations = "!git diff --check $(git empty-tree-sha1)"
-	patchforthis = "!git diff -p $(git empty-tree-sha1)"
-	tagcontains = git tag -l --contains HEAD
-	cc-cache = "config --global credential.helper 'cache --timeout=300'"
-	cc-off = "config --unset --global credential.helper"
-	cc-helperosx = "config --global credential.helper 'osxkeychain'"
-	cc-helperwin = "config --global credential.helper 'wincred'"
-	cc-helperlin = "config --global credential.helper '/pathto/git-credential-gnome-key'"
-	rtheirs = !git checkout --theirs ./ && git add . && git rebase --continue
+    # Other alias ideas that don't quite work yet
+    #testnewrepodoesntwork1 = !echo git init $1 && echo cd $1
+    #testnewrepodoesntwork2 = !sh -c 'git init $1; echo hi' -
+    #testnewrepodoesntwork3 = "!f() { git init $1}; f"
+    nr = "!sh -c 'git init $0'"
+    echoparam1 = "!sh -c 'echo $0'"
+    #testshfunction = "!function gitme() { git init $1; cd $1; }; gitme"
+    
+    fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
+    squash = "!sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
+    ccfq = "!sh -c 'git add $1 && git commit -m\"Placeholder\"' -"
+    cob = checkout -b
+    sno = show --name-only
+    
+    #Searches
+    
+    #https://git.wiki.kernel.org/index.php?title=Aliases
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+    abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
+    oneline ="!_() { $(test $# -eq 0 && echo xargs -L1) git log --no-walk --decorate --oneline \"$@\"; }; _"
+    tips = "!_() { t=$(git rev-list --no-merges --max-count=1 \"$@\"); if test -n \"$t\"; then echo $t; _ \"$@\" ^$t; fi; }; _"
+    empty-tree-sha1 = hash-object -t tree /dev/null
+    whitespaceviolations = "!git diff --check $(git empty-tree-sha1)"
+    patchforthis = "!git diff -p $(git empty-tree-sha1)"
+    tagcontains = git tag -l --contains HEAD
+    cc-cache = "config --global credential.helper 'cache --timeout=300'"
+    cc-off = "config --unset --global credential.helper"
+    cc-helperosx = "config --global credential.helper 'osxkeychain'"
+    cc-helperwin = "config --global credential.helper 'wincred'"
+    cc-helperlin = "config --global credential.helper '/pathto/git-credential-gnome-key'"
+    rtheirs = !git checkout --theirs ./ && git add . && git rebase --continue
     logfive = !git --no-pager log --graph --pretty=oneline --abbrev-commit --decorate --all -5
-	configsimplelog = config format.pretty oneline
-	listignored = ls-files --others -i --exclude-standard
+    configsimplelog = config format.pretty oneline
+    listignored = ls-files --others -i --exclude-standard
 
 
 [apply]
-	whitespace = fix
+    whitespace = fix
 [rerere]
-	enabled = true
+    enabled = true
 
 [difftool]
-	prompt = false
+    prompt = false
 [diff]
-	tool = Kaleidoscope
-#	renames = true
+    tool = Kaleidoscope
+#    renames = true
 
 [mergetool]
-	prompt = false
-	keepBackup = false
+    prompt = false
+    keepBackup = false
 [merge]
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 
 [branch]
     # Automatically set up pull to be --rebase
     #autosetuprebase = always
 
 [url "git://github.com/"]
-	insteadOf = "ghg://"
-	pushInsteadOf = "ghg://"
-	# Example: git clone ghg://ntschutta/emacs
+    insteadOf = "ghg://"
+    pushInsteadOf = "ghg://"
+    # Example: git clone ghg://ntschutta/emacs
 [url "git://github.com/kajsa/"]
     insteadOf = "ghgm://"
     pushInsteadOf = "ghgm://"
     # Example: git clone ghgm://hellogitworld
 [url "git@github.com:"]
-	insteadOf = "ghs://"
-	pushInsteadOf = "ghs://"
+    insteadOf = "ghs://"
+    pushInsteadOf = "ghs://"
 [url "git@github.com:kajsa/"]
-	insteadOf = "ghsm://"
-	pushInsteadOf = "ghsm://"
+    insteadOf = "ghsm://"
+    pushInsteadOf = "ghsm://"
 [url "https://github.com/"]
-	insteadOf = git://github.com/
-	pushInsteadOf = "ghh://"
+    insteadOf = git://github.com/
+    pushInsteadOf = "ghh://"
 [url "https://github.com/kajsa/"]
-	insteadOf = "ghhm://"
-	pushInsteadOf = "ghhm://"
+    insteadOf = "ghhm://"
+    pushInsteadOf = "ghhm://"
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-	
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+    
 [difftool "p4merge"]
-	cmd = \"/Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE\"
+    cmd = \"/Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE\"
 [http]
-	# proxy=http://something
+    # proxy=http://something
 
 [hub]
-	protocol = https
+    protocol = https
 [gist]
-	private = yes
-	browse = yes
+    private = yes
+    browse = yes
 [credential]
     helper = osxkeychain
 [push]
-	default = simple
+    default = simple
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [http]
-	proxy = http://webproxy.int.westgroup.com:80
+    proxy = http://webproxy.int.westgroup.com:80
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
