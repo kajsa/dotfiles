@@ -20,12 +20,8 @@ alias to.dropbox='cd ~/Dropbox'
 alias to.desktop='cd ~/Desktop'
 alias to.process='cd ${MYPROCESS}'
 alias to.docs='cd ${MYDOCUMENTS}'
-alias to.clients='cd ~/Documents/AI-Clients-Matthew'
 alias to.code='cd ${MYCODE}'
-alias to.dosug='cd ~/Documents/AI-Clients-Matthew/DOSUG'
 alias to.scratch='cd ${MYSCRATCH}'
-alias to.teach='cd ${MYTEACH}'
-alias to.ppap='cd ~/Documents/AI-Clients-Matthew/Pearson, Addison Wesley/Presentation-Patterns-Book'
 alias to.github='cd ~/Documents/Code/GitHub'
 alias to.homebrew='cd /usr/local/Library'
 
@@ -41,10 +37,10 @@ alias to.devapps='cd ${MYDEVAPPS}'
 
 #################################
 # Simple Program Name Shortening
-alias aq=aquamacs
 alias g=git
 alias gnp='git --no-pager'
-
+alias v=vim
+alias py=python3
 
 #############################
 # Utilities
@@ -129,30 +125,7 @@ function manp() {
   man -t $1 | open -f -a /Applications/Preview.app
 }
 
-# Show normally hidden system and dotfile types of files
-# in Mac OSX Finder
-function finder.showhiddenfiles() {
-  defaults write com.apple.Finder AppleShowAllFiles YES
-  osascript -e 'tell application "Finder" to quit'
-  sleep 0.25
-  osascript -e 'tell application "Finder" to activate'
-}
-
-# Hide (back to defaults) normally hidden system and dotfile types of files
-# in Mac OSX Finder
-function finder.hidehiddenfiles() {
-  defaults write com.apple.Finder AppleShowAllFiles NO
-  osascript -e 'tell application "Finder" to quit'
-  sleep 0.25
-  osascript -e 'tell application "Finder" to activate'
-}
-
-# Get (cache) all Cheat sheets
-function cheat.getall() {
-	cheat sheets | grep '^  ' | xargs -n 1 -I {} bash -c 'cheat {} | :'
-}
-
-function find.name() {
+function find_by_name() {
   wild=\'\*$1\*\'
   sh -c "find . -iname $wild"
 }
@@ -162,12 +135,3 @@ alias morec='more -R'
 alias lesscolor='less -R'
 alias morecolor='more -R'
 
-function screenshot.setjpg() {
-    defaults write com.apple.screencapture type jpg
-    killall SystemUIServer
-}
-
-function screenshot.setpng() {
-    defaults write com.apple.screencapture type png
-	killall SystemUIServer
-}
