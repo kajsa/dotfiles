@@ -58,6 +58,7 @@
     dw = diff --word-diff
     dcw = diff --color-words
     dm = !git diff | mate
+    dn = diff --name-only
     dv = !git diff | vim
     who = shortlog -s --
     ph = push
