@@ -1,6 +1,6 @@
 [user]
     name = Kajsa Anderson
-    email = kajsa.anderson@nexteraanalytics.com
+    email = 319167+kajsa@users.noreply.github.com
 
 [color]
 # ui = true is a superset of all the more specific color options
@@ -246,8 +246,6 @@
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path = 
-[http]
-    proxy = http://webproxy.int.westgroup.com:80
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
