@@ -35,7 +35,7 @@
     safecrlf = warn
     editor = vim
     whitespace = trailing-space,space-before-tab,tab-in-indent
-    pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
+#    pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [alias]
     # Get the current branch name (not so useful in itself, but used in
@@ -223,21 +223,14 @@
     pushInsteadOf = "ghhm://"
 
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
     
-[difftool "p4merge"]
-    cmd = \"/Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE\"
-[http]
-    # proxy=http://something
-
 [hub]
     protocol = ssh
 [gist]
     private = yes
     browse = yes
-[credential]
-    helper = osxkeychain
 [push]
     default = simple
 [filter "media"]
